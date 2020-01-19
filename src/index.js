@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { ApolloProvider } from 'react-apollo';
+import {ApolloProvider} from 'react-apollo';
 import { 
   InMemoryCache, 
   ApolloLink,
@@ -14,10 +14,10 @@ import {
 
 import {persistCache} from 'apollo-cache-persist';
 
-import { WebSocketLink } from 'apollo-link-ws'
-import { getMainDefinition } from 'apollo-utilities';
+import {WebSocketLink} from 'apollo-link-ws'
+import {getMainDefinition} from 'apollo-utilities';
 
-import { createUploadLink } from 'apollo-upload-client'
+import {createUploadLink} from 'apollo-upload-client';
 
 const cache = new InMemoryCache();
 persistCache({
@@ -26,8 +26,8 @@ persistCache({
 });                                            
 
 if (localStorage['apollo-cache-persist']) {
-  let cacheData = JSON.parse(localStorage['apollo-cache-persist'])
-  cache.restore(cacheData)
+  let cacheData = JSON.parse(localStorage['apollo-cache-persist']);
+  cache.restore(cacheData);
 };
 
 // const client = new ApolloClient({ 
@@ -44,7 +44,7 @@ if (localStorage['apollo-cache-persist']) {
 // });
 
 // const httpLink = new HttpLink({uri: 'http://localhost:4000/graphql'});
-const httpLink = createUploadLink({ uri: 'http://localhost:4000/graphql' })
+const httpLink = createUploadLink({ uri: 'http://localhost:4000/graphql' });
 const wsLink = new WebSocketLink({
   uri: `ws://localhost:4000/graphql`,
   options: { reconnect: true }

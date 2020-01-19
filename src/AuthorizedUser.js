@@ -4,7 +4,7 @@ import {Query, Mutation, withApollo} from 'react-apollo'
 import {ROOT_QUERY} from './App';
 import {gql} from 'apollo-boost';
 import * as compose from 'lodash.flowright';
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
 
 const GITHUB_AUTH_MUTATION = gql`
     mutation githubAuth($code:String!) {
@@ -46,7 +46,7 @@ class AuthorizedUser extends Component {
     if (window.location.search.match(/code=/)) {
         this.setState({signingIn: true});
         const code = window.location.search.replace("?code=", "");
-        this.gethubAuthMutation({variables: {code} });
+        this.githubAuthMutation({variables: {code} });
     }
   }
 
@@ -80,4 +80,4 @@ class AuthorizedUser extends Component {
   }
 }
 
-export default compose(withApollo, withRouter)(AuthorizedUser)   
+export default compose(withApollo, withRouter)(AuthorizedUser);

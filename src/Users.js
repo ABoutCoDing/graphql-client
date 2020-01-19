@@ -11,7 +11,7 @@ const Users = () =>
                 users={data.allUsers}
                 refetch={refetch} />
         }
-    </Query> 
+    </Query>;
 
 const updateUserCache = (cache, { data:{ addFakeUsers } }) => {
     let data = cache.readQuery({ query: ROOT_QUERY })
@@ -20,7 +20,7 @@ const updateUserCache = (cache, { data:{ addFakeUsers } }) => {
         ...data.allUsers,
         ...addFakeUsers
     ]
-    cache.writeQuery({ query: ROOT_QUERY, data })
+    cache.writeQuery({ query: ROOT_QUERY, data });
 }    
 
 const UserList = ({count, users, refetch}) =>
@@ -47,7 +47,7 @@ const UserListItem = ({name, avatar}) =>
     <li>
       <img src={avatar} width={48} height={48} alt="" />
       {name}
-    </li>    
+    </li>;
 
 const ADD_FAKE_USERS_MUTATION = gql`
     mutation addFakeUsers($count:Int!) {
@@ -57,6 +57,6 @@ const ADD_FAKE_USERS_MUTATION = gql`
             avatar
         }
     }
-`
+`;
 
 export default Users;

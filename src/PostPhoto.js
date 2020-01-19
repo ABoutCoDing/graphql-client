@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Mutation } from 'react-apollo'
-import { gql } from 'apollo-boost'
+import React, {Component} from 'react';
+import {Mutation} from 'react-apollo';
+import {gql} from 'apollo-boost';
 
 const POST_PHOTO_MUTATION = gql`
     mutation postPhoto($input: PostPhotoInput!) {
@@ -10,9 +10,9 @@ const POST_PHOTO_MUTATION = gql`
             url
         }
     }
-`
-export default class PostPhoto extends Component {
+`;
 
+export default class PostPhoto extends Component {
     state = {
         name: '',
         description: '',
@@ -88,5 +88,4 @@ export default class PostPhoto extends Component {
             </form>
         )
     }
-
 }

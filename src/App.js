@@ -5,8 +5,8 @@ import {gql} from 'apollo-boost';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import AuthorizedUser from './AuthorizedUser';
-import Photos from './Photos'
-import PostPhoto from './PostPhoto'
+import Photos from './Photos';
+import PostPhoto from './PostPhoto';
 
 import {withApollo} from 'react-apollo';
 
@@ -28,7 +28,7 @@ export const ROOT_QUERY = gql`
       name
       avatar
     }
-`
+`;
 
 const LISTEN_FOR_USERS = gql`
     subscription {
@@ -38,7 +38,7 @@ const LISTEN_FOR_USERS = gql`
             avatar
         }
     }
-`
+`;
 
 const LISTEN_FOR_PHOTOS = gql`
     subscription {
@@ -48,7 +48,7 @@ const LISTEN_FOR_PHOTOS = gql`
             url
         }
     }
-`
+`;
 
 const App = ({client}) => {
   useEffect(() => {
